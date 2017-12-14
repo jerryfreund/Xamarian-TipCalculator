@@ -7,7 +7,7 @@ namespace Xamarin_TipCalculator
     [Activity(Label = "Xamarin_TipCalculator", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
+        //int count = 1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -18,9 +18,9 @@ namespace Xamarin_TipCalculator
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
+            //Button button = FindViewById<Button>(Resource.Id.);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
         }
     }
 }
