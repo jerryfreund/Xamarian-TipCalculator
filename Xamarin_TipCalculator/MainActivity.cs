@@ -1,48 +1,86 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using System;
+
 
 namespace Xamarin_TipCalculator
 {
-    [Activity(Label = "Xamarin_TipCalculator", MainLauncher = true, Icon = "@mipmap/icon")]
-    public class MainActivity : Activity
-    {
-        //private EditText inputBill;
-        //private Button calculateButton;
 
-        //int count = 1;
+    [Activity(Label = "TipCalculator", MainLauncher = true, Icon = "@mipmap/icon")]
+
+    public class MainActivity : Activity
+
+    {
+
+        EditText inputBill;
+
+        Button calculateButton;
+
+        TextView outputTip;
+
+        TextView outputTotal;
+
+
 
         protected override void OnCreate(Bundle bundle)
+
         {
+
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            //Button button = FindViewById<Button>(Resource.Id.);
 
-            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
 
-            EditText inputBill = FindViewById<EditText>(Resource.Id.inputBill);
-            Button calculateButton = FindViewById<Button>(Resource.Id.calculateButton);
+            inputBill = FindViewById<EditText>(Resource.Id.inputBill);
+
+            calculateButton = FindViewById<Button>(Resource.Id.calculateButton);
+
+            outputTip = FindViewById<TextView>(Resource.Id.outputTip);
+
+            outputTotal = FindViewById<TextView>(Resource.Id.outputTotal);
+
+
+
             calculateButton.Click += OnCalculateClick;
 
-
         }
 
-        void OnCalculateClick(object sender, ItemEventArgs e)
+
+
+        void OnCalculateClick(object sender, EventArgs e)
+
         {
+
             string text = inputBill.Text;
-            var bill = double.Parse(text);
 
-            var tip = bill * 0.15;
-            var total = bill + tip;
 
-            outputTip.Text = tip.ToString();
-            outputTotal.Text = total.ToString();
+
+            double bill;
+
+
+
+            if (double.TryParse(text, out bill))
+
+            {
+
+
+
+                var tip = bill * 0.15;
+
+                var total = bill + tip;
+
+
+
+                outputTip.Text = tip.ToString("C");
+
+                outputTotal.Text = total.ToString("C");
+
+            }
+
         }
-    }
-}
 
+    }
+
+}
