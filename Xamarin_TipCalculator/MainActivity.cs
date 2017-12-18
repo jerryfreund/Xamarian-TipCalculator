@@ -21,6 +21,10 @@ namespace Xamarin_TipCalculator
             //Button button = FindViewById<Button>(Resource.Id.);
 
             //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+
+            inputBill = FindViewById<EditText>(Resource.Id.inputBill);
+
+
         }
     }
 }
